@@ -12,7 +12,7 @@ module Mutations
         description: description,
         user_id: user_id)
       unless blog.id
-        raise "ksdf"
+        raise blog.errors.map{|e| "error #{e.attribute} #{e.type}"}.to_sentence
       end
       blog
     end
